@@ -26,7 +26,6 @@ module.exports = merge(common, {
         test: /\.(sc|sa|c)ss$/,
         use: [
           {
-            // loader: MiniCssExtractPlugin.loader,
             loader: MiniCssExtractPlugin.loader,
             options: {
               publicPath: "../dist/"
