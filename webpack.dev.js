@@ -51,7 +51,7 @@ module.exports = merge(common, {
               name: "[path][name].[ext]",
               context: path.resolve(__dirname, "src/image/"),
               outputPath: "dist/image",
-              // publicPath: "../",
+              publicPath: "../",
               useRelativePaths: true
             }
           }

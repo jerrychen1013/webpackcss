@@ -45,42 +45,135 @@ ul {
 }
 
 
-
-.main {
-    width: 100%;
-    height: 100vh;
+.sidebar {
     position: relative;
+    top: 0;
+    z-index: 99;
+    // visibility: hidden;
+    display:none;
+}
 
-    .sidebar {
-        position: absolute;
-        top: 0;
-        z-index: 99;
-        visibility: hidden;
-    }
+.panel1 {
+    height: 100%;
+    width: 100%;
+    background-image: url('../image/bg1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    .panel1 {
-        height: 100vh;
-        background-color: #e9700e;
-        img {
-            filter: hue-rotate(180deg);
-        }
-        .txt {
+    .content {
+        position: relative;
+        top: 20%;
+        width: 60%;
+        height: 30%;
+        padding-top: 4%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: purple;
+        .img1 {
             position: absolute;
-            top: 30%;
+            top: 0;
+            left: 0;
+            filter: hue-rotate(180deg);
+            width:100%;
+            height:100%;
+            z-index: 1;
+        }
+        .img2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width:100%;
+            height:100%;
+        }
+        .txt1 {
+            position: absolute;
+            top: 70%;
             left: 50%;
             text-transform: uppercase;
-            font-size:64px;
+            font-size: 5vmin;
             background: linear-gradient(to right, purple, white);
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            transform: translate(-50%, -30%) rotate(20deg);
+            // transform: translate(-50%, -50%) rotate(20deg);
+            transform: translate(-50%, -50%);
+            z-index:2;
+        }
+        .txt2 {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            text-transform: uppercase;
+            font-size: 5vmin;
+            background: linear-gradient(to right, yellow, white);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            // transform: translate(-50%, -50%) rotate(20deg);
+            transform: translate(-50%, -50%);
+            z-index:2;
         }
     }
-    
-    .panel2 {
-        height: 100%;
+}
+
+.panel2 {
+    height: 100%;
+    background-image: url('../image/bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background-color: purple;
+    color: rgb(122, 51, 51);
+    .content {
+        position: relative;
+        top: 20%;
+        width: 60%;
+        height: 30%;
+        padding-top: 4%;
+        margin-left: auto;
+        margin-right: auto;
         background-color: purple;
-        color: rgb(122, 51, 51);
+        .img1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            filter: hue-rotate(180deg);
+            width:100%;
+            height:100%;
+            z-index: 1;
+        }
+        .img2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width:100%;
+            height:100%;
+        }
+        .txt1 {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            text-transform: uppercase;
+            font-size: 5vmin;
+            background: linear-gradient(to right, purple, white);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            // transform: translate(-50%, -50%) rotate(20deg);
+            transform: translate(-50%, -50%);
+            z-index:2;
+        }
+        .txt2 {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            text-transform: uppercase;
+            font-size: 5vmin;
+            background: linear-gradient(to right, yellow, white);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            // transform: translate(-50%, -50%) rotate(20deg);
+            transform: translate(-50%, -50%);
+            z-index:2;
+        }
     }
 }
 
