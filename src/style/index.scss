@@ -15,7 +15,7 @@ tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption, 
 footer, header, hgroup, menu, nav, output, 
 ruby, section, summary, time, mark, audio, video {
-    margin: 0;
+    margin: 0px;
     padding: 0;
     border: 0;
     font-size: 100%;
@@ -44,13 +44,106 @@ ul {
     list-style: none;
 }
 
-
-.sidebar {
-    position: relative;
+nav {
+    position: absolute;
     top: 0;
-    z-index: 99;
-    // visibility: hidden;
-    display:none;
+    left: 0;
+}
+
+.menuToggle {
+    display: block;
+    position: relative;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
+
+    input {
+        display:block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+    }
+
+    span {
+        display:block;
+        width:32px;
+        height:4px;
+        margin-bottom:5px;
+        position: relative;
+        background: #cdcdcd;
+        border-radius: 3px;
+        z-index:1;
+
+        transform-origin: 4px, 0px;//元素變化起始點（top, left）/ (xpx, ypx), 0px, 0px代表最左上方起點
+
+
+        // 貝茲曲線 (x1, y1, x2, y2)  x1, x2代表結束位置，數值一定要在[0,1]間
+        // 貝茲曲線 (x1, y1, x2, y2)  y1,y2代表行進的Y座標，可用其他屬性代替，例如顏色
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), 
+                    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    opacity 0.55s ease;
+    }
+
+    span:first-child {
+        transform-origin: 0% 0%;
+    }
+    span:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+
+    input:checked ~ span {
+        opacity:1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background:  black;
+    }
+
+    // 隱藏中間bar
+    input:checked ~ span:nth-last-child(3) {
+        opacity:0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    // 最後一個bar應該走不同方向
+    input:checked ~ span:nth-last-child(2) {
+        transform: rotate(-45deg) translate(9px, -3px); // 內時針轉45度；負號為逆時針；正號為順時針
+    }
+
+    
+
+    // 設定選單
+    .menu {  
+        position: absolute;
+        width:300px;
+        margin: -100px 0 0 -50px;
+        padding: 50px;
+        padding-top: 125px;
+
+        background: #ededed;
+        list-style: none;
+        -webkit-font-smoothing: antialiased;
+
+        transform-origin: 0%, 0%;
+
+        // 一開始時transform位置
+        transform: translate(-100%, 0);
+        // transform事件改變時，轉型效果設定。結束transform在140行設定
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+
+        li {
+            padding:10px 0;
+            font-size:22px;
+        }
+    }
+
+    input:checked ~ ul {
+        //最後transform位置
+        transform: none;
+    }
 }
 
 .panel1 {
